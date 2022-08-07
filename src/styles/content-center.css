@@ -9,15 +9,11 @@
   --shadow-y: 1rem;
   font-size: 4rem;
   text-align: center;
-  background: #155799;
-  background: -webkit-linear-gradient(225deg, #155799, #159957);
-  background: -moz-linear-gradient(225deg, #155799, #159957);
-  background: -o-linear-gradient(225deg, #155799, #159957);
-  background: linear-gradient(225deg, #155799, #159957);
+  background: #1bc98e;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: var(--shadow-x) var(--shadow-y) 1rem #80558ca1;
+  text-shadow: var(--shadow-x) var(--shadow-y) 1rem #8585857d;
 }
 
 .content-center h2 {
