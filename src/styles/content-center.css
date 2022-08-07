@@ -1,0 +1,57 @@
+.content-center {
+  max-width: 35rem;
+  min-width: 12.5rem;
+  padding-top: 6rem;
+}
+
+.content-center h1 {
+  --shadow-x: 1rem;
+  --shadow-y: 9rem;
+  font-size: 4rem;
+  text-align: center;
+  background: #155799;
+  background: -webkit-linear-gradient(225deg, #155799, #159957);
+  background: -moz-linear-gradient(225deg, #155799, #159957);
+  background: -o-linear-gradient(225deg, #155799, #159957);
+  background: linear-gradient(225deg, #155799, #159957);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: var(--shadow-x) var(--shadow-y) 1rem #80558ca1;
+}
+
+.content-center h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.content-center p {
+  text-align: center;
+}
+
+@media screen and (max-width: 40rem) {
+  .content-center {
+    padding-top: 3rem;
+  }
+  .content-center h1 {
+    font-size: 3rem;
+  }
+  .content-center h2 {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 20rem) {
+  .content-center {
+    padding-top: 2rem;
+  }
+  .content-center h1 {
+    font-size: 1rem;
+  }
+  .content-center h2 {
+    font-size: 0.5rem;
+  }
+  .content-center p {
+    font-size: 0.5rem;
+  }
+}

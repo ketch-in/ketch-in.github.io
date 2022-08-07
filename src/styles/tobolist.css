@@ -1,0 +1,62 @@
+.todo-list__body {
+  list-style-type: none;
+  margin-block-start: 0rem;
+  margin-block-end: 0rem;
+  padding-inline-start: 0rem;
+}
+
+.todo-list__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+
+  /* drag 방지 */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  position: relative;
+}
+
+.todo-list__item label {
+  display: inline-block;
+  width: calc(100% - 3.4rem);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-left: 0.5rem;
+}
+
+.todo-list__item__hover {
+  visibility: hidden;
+  max-width: calc(100% - 0.8rem);
+  background-color: black;
+  color: #fff;
+  text-align: left;
+  padding: 0.4rem;
+  border-radius: 0.3rem;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+
+  top: 100%;
+  left: 0rem;
+}
+.todo-list__item:hover .todo-list__item__hover {
+  visibility: visible;
+}
+
+@media screen and (max-width: 40rem) {
+  .todo-list__item {
+    margin-bottom: 0.6rem;
+  }
+  .todo-list__item label {
+    font-size: 0.8rem;
+  }
+
+  .todo-list__item__hover {
+    font-size: 0.6rem;
+  }
+}

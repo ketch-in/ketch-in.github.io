@@ -1,0 +1,26 @@
+{
+  "name": "ketch-in.github.io",
+  "private": true,
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">Ketch In</h1>",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ketch-in/ketch-in.github.io.git"
+  },
+  "author": "KETCH IN",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ketch-in/ketch-in.github.io/issues"
+  },
+  "homepage": "https://github.com/ketch-in/ketch-in.github.io#readme",
+  "devDependencies": {
+    "typescript": "^4.7.4",
+    "vite": "^3.0.4"
+  }
+}
