@@ -61,19 +61,22 @@ function createTabElement(
     tabBody.appendChild(data[selected]);
   };
 
-  const items = tabKeys.reduce((acc, tabName) => {
-    const li = createElement("li", { class: "tabs__item" }, [tabName]);
-    li.addEventListener("click", () => {
-      if (items[selected]) {
-        items[selected].classList.remove("active");
-      }
-      li.classList.add("active");
-      selected = tabName;
-      setBody();
-    });
-    tabHeader.appendChild(li);
-    return { ...acc, [tabName]: li };
-  }, {});
+  const items: { [key: string]: HTMLElement } = tabKeys.reduce(
+    (acc, tabName) => {
+      const li = createElement("li", { class: "tabs__item" }, [tabName]);
+      li.addEventListener("click", () => {
+        if (items[selected]) {
+          items[selected].classList.remove("active");
+        }
+        li.classList.add("active");
+        selected = tabName;
+        setBody();
+      });
+      tabHeader.appendChild(li);
+      return { ...acc, [tabName]: li };
+    },
+    {}
+  );
 
   setBody();
 
