@@ -5,7 +5,8 @@
   padding-inline-start: 0rem;
 }
 
-.todo-list__item {
+.todo-list__item,
+.todo-list__title {
   display: flex;
   align-items: center;
   margin-bottom: 0.8rem;
@@ -26,6 +27,18 @@
   white-space: nowrap;
   overflow: hidden;
   padding-left: 0.5rem;
+}
+
+.todo-list__title label {
+  display: inline-block;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #1bc98e;
+  padding-top: 1rem;
+  font-size: 1.4rem;
+  border-bottom: 1px solid;
 }
 
 .todo-list__item__hover {

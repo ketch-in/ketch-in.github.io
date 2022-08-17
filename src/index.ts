@@ -1,5 +1,8 @@
-import { CHROME_EXTENSION, COMPONENTS, HOST, SERVER } from "./todo";
+import { COMPONENTS, HOST, SERVER } from "./todo";
 
+import CHROME_EXTENSION from "./todo/chromeExtension";
+
+import { TodoListItems } from "./types";
 import "./styles/index.css";
 
 function titleAnimationEvent(e: MouseEvent) {
@@ -135,21 +138,32 @@ function createSliderElement(
   return slider;
 }
 
-function createTodoList(data: { title: string; active: boolean }[]) {
+function createTodoList(data: TodoListItems) {
   const todo = createElement("div", { class: "todo-list" });
   const list = createElement("ul", { class: "todo-list__body" });
 
-  data.forEach(({ title, active }) => {
-    const li = createElement("li", { class: "todo-list__item" }, [
-      createElement("input", {
-        id: title,
-        type: "checkbox",
-        onclick: "return false;",
-        ...(active ? { checked: "true" } : {}),
-      }),
-      createElement("label", { for: title }, [title]),
-      createElement("span", { class: "todo-list__item__hover" }, [title]),
-    ]);
+  data.forEach(({ type, title, active, tooltip }) => {
+    const hasCheckbox = type === "checkList";
+    const li = createElement(
+      "li",
+      { class: hasCheckbox ? "todo-list__item" : "todo-list__title" },
+      [
+        hasCheckbox
+          ? createElement("input", {
+              id: title,
+              type: "checkbox",
+              onclick: "return false;",
+              ...(active ? { checked: "true" } : {}),
+            })
+          : "",
+        createElement("label", { for: title }, [title]),
+        hasCheckbox
+          ? createElement("span", { class: "todo-list__item__hover" }, [
+              tooltip || title,
+            ])
+          : "",
+      ]
+    );
 
     list.appendChild(li);
   });
@@ -167,9 +181,19 @@ if (content) {
       "Chrome Extension": createElement("div", {}, [
         createTodoList(CHROME_EXTENSION),
       ]),
-      Host: createElement("div", {}, [createTodoList(HOST)]),
-      Server: createElement("div", {}, [createTodoList(SERVER)]),
-      Components: createElement("div", {}, [createTodoList(COMPONENTS)]),
+      "Host / Server / Components": createElement("div", {}, [
+        createTodoList([
+          { type: "title", title: "Host" },
+          { type: "checkList", title: "I'm checking the specs." },
+          { type: "title", title: "Server" },
+          { type: "checkList", title: "I'm checking the specs." },
+          { type: "title", title: "Components" },
+          { type: "checkList", title: "I'm checking the specs." },
+        ]),
+      ]),
+      // Host: createElement("div", {}, [createTodoList(HOST)]),
+      // Server: createElement("div", {}, [createTodoList(SERVER)]),
+      // Components: createElement("div", {}, [createTodoList(COMPONENTS)]),
     })
   );
 }

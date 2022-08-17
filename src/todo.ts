@@ -1,9 +1,13 @@
-export const HOST = [{ active: false, title: "Checking features..." }];
+import { TodoListItems } from "./types";
 
-export const SERVER = [{ active: false, title: "Checking features..." }];
+export const HOST: TodoListItems = [
+  { type: "checkList", active: false, title: "Checking features..." },
+];
 
-export const COMPONENTS = [{ active: false, title: "Checking features..." }];
+export const SERVER: TodoListItems = [
+  { type: "checkList", active: false, title: "Checking features..." },
+];
 
-export const CHROME_EXTENSION = [
-  { active: false, title: "Checking features..." },
+export const COMPONENTS: TodoListItems = [
+  { type: "checkList", active: false, title: "Checking features..." },
 ];
