@@ -1,0 +1,59 @@
+@import url("./icons.css");
+@import url("./navigation.css");
+@import url("./content-center.css");
+@import url("./fonts.css");
+@import url("./tabs.css");
+@import url("./tobolist.css");
+@import url("./slider.css");
+
+body {
+  margin: 0rem;
+  font-family: "GmarketSans";
+  background: rgb(249 250 251);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.body {
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 4rem;
+}
+
+.footer {
+  width: 100vw;
+  font-size: 0.6rem;
+  padding: 2rem 0;
+  text-align: center;
+  color: #15579990;
+}
+
+.focus-text {
+  text-decoration-style: dashed;
+  text-decoration-color: #1bc98e;
+  text-decoration-line: underline;
+  text-underline-offset: 0.25rem;
+}
+
+@media screen and (max-width: 40rem) {
+  .focus-text {
+    text-underline-offset: 0.1rem;
+  }
+}
+
+@media screen and (max-width: 20rem) {
+  .focus-text {
+    text-underline-offset: 0rem;
+  }
+  .body {
+    padding: 0rem;
+  }
+}

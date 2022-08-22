@@ -1,0 +1,8 @@
+ul.tabs__header {
+  list-style-type: none;
+  margin-block-start: 0rem;
+  margin-block-end: 0rem;
+  padding-inline-start: 0rem;
+
+  display: flex;
+}
