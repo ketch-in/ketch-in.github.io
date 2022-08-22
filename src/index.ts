@@ -1,6 +1,6 @@
-import { COMPONENTS, HOST, SERVER } from "./todo";
-
 import CHROME_EXTENSION from "./todo/chromeExtension";
+import HOST from "./todo/host";
+import SERVER from "./todo/server";
 
 import { TodoListItems } from "./types";
 import "./styles/index.css";
@@ -181,19 +181,8 @@ if (content) {
       "Chrome Extension": createElement("div", {}, [
         createTodoList(CHROME_EXTENSION),
       ]),
-      "Host / Server / Components": createElement("div", {}, [
-        createTodoList([
-          { type: "title", title: "Host" },
-          { type: "checkList", title: "I'm checking the specs." },
-          { type: "title", title: "Server" },
-          { type: "checkList", title: "I'm checking the specs." },
-          { type: "title", title: "Components" },
-          { type: "checkList", title: "I'm checking the specs." },
-        ]),
-      ]),
-      // Host: createElement("div", {}, [createTodoList(HOST)]),
-      // Server: createElement("div", {}, [createTodoList(SERVER)]),
-      // Components: createElement("div", {}, [createTodoList(COMPONENTS)]),
+      Host: createElement("div", {}, [createTodoList(HOST)]),
+      Server: createElement("div", {}, [createTodoList(SERVER)]),
     })
   );
 }
