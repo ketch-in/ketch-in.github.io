@@ -1,4 +1,5 @@
-<h1 align=center>Ketch In</h1>
+<p align=center><img src="./src/icons/logoMark.png" width=64/></p>
+<h1 align=center> Ketch In</h1>
 
 ## Server
 
