@@ -1,0 +1,67 @@
+---
+import Intro from "../components/Intro.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Features from "../components/Features";
+import Download from "../components/Download.astro";
+import Compatibility from "../components/Compatibility.astro";
+import About from "../components/About";
+
+import "../styles/index.scss";
+
+const rawFeatures = await Astro.glob("../features/*.md");
+const features = rawFeatures.reduce<{ [key: string]: any }>((acc, feature) => {
+  const { frontmatter } = feature;
+
+  return {
+    ...acc,
+    [frontmatter.category]: [
+      ...(acc[frontmatter.category] ?? []),
+      { ...frontmatter, content: feature.compiledContent() },
+    ],
+  };
+}, {});
+---
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ketch In</title>
+  </head>
+  <body>
+    <Header />
+    <Intro />
+    <About client:only />
+    <Features items={features} client:only />
+    <Compatibility
+      items={[
+        "Windows",
+        "MacOS",
+        "Linux",
+        "Chrome",
+        "Edge",
+        "Safari",
+        "Chrome Mobile",
+        "Safari Mobile",
+      ]}
+    />
+    <Download />
+    <Footer />
+  </body>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      position: relative;
+      overflow-x: hidden;
+      height: 100vh;
+      width: 100vw;
+      padding: 0px;
+      margin: 0px;
+    }
+  </style>
+</html>

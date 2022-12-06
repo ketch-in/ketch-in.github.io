@@ -1,0 +1,70 @@
+---
+---
+
+<section id="intro">
+  <canvas id="intro-canvas" width="8196" height="8196"></canvas>
+</section>
+
+<script>
+  const temp = [
+    [
+      [50, 50],
+      [50, 250],
+    ],
+    [
+      [50, 150],
+      [100, 50],
+    ],
+  ];
+  const canvas = document.getElementById("intro-canvas") as HTMLCanvasElement;
+  function drawLine(
+    context: CanvasRenderingContext2D,
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number
+  ) {
+    context.beginPath();
+    context.strokeStyle = "white";
+    context.lineWidth = 1;
+    context.moveTo(x1, y1);
+    context.lineTo(x2, y2);
+    context.stroke();
+    context.closePath();
+  }
+  let x = 0;
+  let y = 0;
+  if (canvas) {
+    canvas.addEventListener("mousedown", (e) => {
+      x = e.offsetX;
+      y = e.offsetY;
+    });
+    canvas.addEventListener("mousemove", (e) => {
+      if (!canvas?.getContext || e.buttons !== 1) {
+        return;
+      }
+      const ctx = canvas.getContext("2d");
+      if (!ctx) {
+        return;
+      }
+
+      drawLine(ctx, x, y, e.offsetX, e.offsetY);
+      x = e.offsetX;
+      y = e.offsetY;
+    });
+
+    canvas.addEventListener("mouseup", (e) => {
+      x = 0;
+      y = 0;
+    });
+  }
+</script>
+
+<style>
+  #intro {
+    position: relative;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+  }
+</style>
