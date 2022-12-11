@@ -4,11 +4,11 @@
 <section id="download">
   <h1>다운로드</h1>
   <ul class="group">
-    <li class="box">
+    <li class="box disabled">
       <h2>Host <span>version 0.0.1</span></h2>
       <div class="label">다운로드</div>
     </li>
-    <li class="box">
+    <li class="box disabled">
       <h2>Extension <span>version 0.0.1</span></h2>
       <div class="label">다운로드</div>
     </li>
@@ -27,12 +27,23 @@
     justify-content: center;
   }
 
+  #download ul.group {
+    display: inline-block;
+    text-align: center;
+
+    list-style-type: none;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding-inline-start: 0px;
+  }
+
   #download h1 {
     text-align: center;
     font-size: 2rem;
   }
 
   #download li.box {
+    position: relative;
     width: 400px;
     height: 200px;
     display: inline-flex;
@@ -43,11 +54,35 @@
     border: 1px solid #d9d9d9;
     user-select: none;
     cursor: pointer;
+    margin-top: 10px;
   }
 
+  #download li.box.disabled::before {
+    content: "제공 예정입니다.";
+    opacity: 0;
+    height: 0px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #377566e9;
+    color: black;
+    transition: 0.5s all;
+    font-size: large;
+    color: white;
+    cursor: default;
+  }
   #download li.box:hover {
     background-color: white;
     border: 1px solid black;
+  }
+
+  #download li.box.disabled:hover::before {
+    height: 100%;
+    opacity: 1;
   }
 
   #download li.box .label {
